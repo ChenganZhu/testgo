@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: myprogram
+  name: myprogram
+spec:
+  containers:
+  - name: myprogram
+    image: zhuchengan/myprogram:test 
+    command:
+    - busybox/sh
+    args:
+    - -c
+    - "./myprogram -u https://www.google.fr -u https://news.ycombinator.com -o stdout; tail -f /dev/null"
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
